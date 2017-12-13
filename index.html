@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Train Tracker</title>
+</head>
+<body>
+  <head>
+    <h1>Train Tracker!</h1>
+    <h2>Track those trains without using your brains</h2>
+  </head>
+  <section>
+    <table id="train-table">
+      <caption>Current Train Schedule</caption>
+      <tr>
+        <th>Train Name</th>
+        <th>Destination</th>
+        <th>Frequency (min)</th>
+        <th>Next Arrival</th>
+        <th>Minutes Away</th>
+      </tr>
+    </table>
+  </section>
+  <aside>
+    <form>
+      <legend>Add Train</legend>
+      <label for="train-name">Train Name</label><br/>
+      <input id="train-name" type="text" name="train-time"><br/>
+      <label for="destination">Destination</label><br>
+      <input id="destination" type="text" name="destination"><br>
+      <label for="first-train-time">
+        First Train Time (HH:mm&mdash;Military time)
+      </label><br>
+      <input id="first-train-time" type="text" name="first-train-time">
+      <p>
+        <button type="submit">Submit</button>
+      </p>
+    </form>
+  </aside>
+
+  <!-- jQuery -->
+  <script 
+    src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.4/locale/es.js"
+    integrity="sha256-YseGBWzRisIid8bDVyx1Np6PVgYYhIPMzGULjdF7Ya4=" 
+    crossorigin="anonymous">
+  </script>
+
+  <!-- Moment.js -->
+  <script 
+    src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.4/locale/es.js" 
+    integrity="sha256-YseGBWzRisIid8bDVyx1Np6PVgYYhIPMzGULjdF7Ya4=" 
+    crossorigin="anonymous">
+  </script>
+
+  <!-- custom script -->
+  <script src="./assets/js/app.js"></script>
+</body>
+</html>
