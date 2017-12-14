@@ -1,6 +1,8 @@
 @import 'normalize.css';
 
 $font-stack: 'Nunito', sans-serif;
+$font-bold: 600;
+$font-light: 300;
 $primary-color: #B6AA5C;
 $secondary-color: #8A7DF6;
 
@@ -43,7 +45,7 @@ body {
   background-image: url('../images/noisy_grid.png');
   font-family: $font-stack;
   font-size: 16px;
-  font-weight: 300;
+  font-weight: $font-light;
   color: #444;
 }
 
@@ -69,7 +71,7 @@ body {
 
   h1 {
     font-size: 3em;
-    font-weight: 600;
+    font-weight: $font-bold;
   }
 
   h2 {
@@ -97,7 +99,7 @@ table {
     @include border-top-left-radius(5px);
     @include border-top-right-radius(5px);
     font-size: 1.2em;
-    font-weight: 600;
+    font-weight: $font-bold;
   }
 
   tr {
@@ -110,7 +112,7 @@ table {
   }
 
   th {
-    font-weight: 600;
+    font-weight: $font-bold;
   }
 }
 
@@ -133,7 +135,7 @@ table {
     border-top-right-radius: 5px;
     margin-bottom: 10px;
     font-size: 1.2em;
-    font-weight: 600;
+    font-weight: $font-bold;
   }
 
   label, input, button {
@@ -141,7 +143,7 @@ table {
   }
   
   label {
-    font-weight: 600;
+    font-weight: $font-bold;
   }
   
   input {
