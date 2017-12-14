@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito:300,600');
-@import 'var';
-@import 'mixins';
-@import 'normalize';
-@import 'typography';
-@import 'grid';
-@import 'header';
-@import 'table';
-@import 'add-train';
+@import 'helpers/_var';
+@import 'helpers/_mixins';
+@import 'base/_normalize';
+@import 'base/_typography';
+@import 'layout/_grid';
+@import 'components/_header';
+@import 'components/_table';
+@import 'components/_add-train';
