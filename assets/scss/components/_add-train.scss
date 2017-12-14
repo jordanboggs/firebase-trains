@@ -1,6 +1,8 @@
 #add-train {
   border: 2px solid $secondary-color;
   @include border-radius($border-rad);
+  text-align: left;
+  background-color: #fff;
 
   legend {
     display: table-caption;
@@ -8,12 +10,21 @@
     border-top-left-radius: $border-rad;
     border-top-right-radius: $border-rad;
     margin-bottom: 10px;
+    text-align: center;
+    background-color: $secondary-color;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: $font-bold;
   }
 
   label, input, button {
     margin: 10px;
   }
   
+  label {
+    font-weight: $font-bold;
+  }
+
   input {
     width: 90%;
     border: 1px solid #444;
@@ -24,5 +35,7 @@
     border: 0;
     border-radius: $border-rad;
     padding: 10px;
+    background-color: $secondary-color;
+    color: #fff;   
   }
 }

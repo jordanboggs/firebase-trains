@@ -1,4 +1,6 @@
 table {
+  text-align: left;
+  background-color: #fff;  
   border: 2px solid $secondary-color;
   @include border-bottom-left-radius($border-rad);
   @include border-bottom-right-radius($border-rad);
@@ -8,6 +10,11 @@ table {
     border: 2px solid $secondary-color;
     @include border-top-left-radius($border-rad);
     @include border-top-right-radius($border-rad);
+    background-color: $secondary-color;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: $font-bold;
+    text-align: center;
   }
 
   tr {
@@ -17,5 +24,9 @@ table {
   th, td {
     padding: 10px;
     border-bottom: 1px solid #ddd;
+  }
+
+  th {
+    font-weight: $font-bold;
   }
 }
