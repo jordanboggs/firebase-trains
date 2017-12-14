@@ -2,9 +2,6 @@ table {
   border: 2px solid $secondary-color;
   @include border-bottom-left-radius($border-rad);
   @include border-bottom-right-radius($border-rad);
-  // margin: 0 auto 2vh;
-  // width: 80vw;
-  // max-width: 800px;
 
   caption {
     display: table-caption;
