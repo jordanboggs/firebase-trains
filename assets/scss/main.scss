@@ -1,54 +1,11 @@
-@import 'normalize.css';
 @import url('https://fonts.googleapis.com/css?family=Nunito:300,600');
-
-$font-stack: 'Nunito', sans-serif;
-$font-bold: 600;
-$font-light: 300;
-$primary-color: #B6AA5C;
-$secondary-color: #8A7DF6;
-$border-rad: 5px;
-
-@mixin border-radius($radius) {
-  -webkit-border-radius: $radius;
-     -moz-border-radius: $radius;
-      -ms-border-radius: $radius;
-          border-radius: $radius;
-}
-
-@mixin border-top-left-radius($radius) {
-  -webkit-border-top-left-radius: $radius;
-     -moz-border-top-left-radius: $radius;
-      -ms-border-top-left-radius: $radius;
-          border-top-left-radius: $radius;
-}
-
-@mixin border-top-right-radius($radius) {
-  -webkit-border-top-right-radius: $radius;
-     -moz-border-top-right-radius: $radius;
-      -ms-border-top-right-radius: $radius;
-          border-top-right-radius: $radius;
-}
-
-@mixin border-bottom-left-radius($radius) {
-  -webkit-border-bottom-left-radius: $radius;
-     -moz-border-bottom-left-radius: $radius;
-      -ms-border-bottom-left-radius: $radius;
-          border-bottom-left-radius: $radius;
-}
-
-@mixin border-bottom-right-radius($radius) {
-  -webkit-border-bottom-right-radius: $radius;
-     -moz-border-bottom-right-radius: $radius;
-      -ms-border-bottom-right-radius: $radius;
-          border-bottom-right-radius: $radius;
-}
+@import 'helpers/var';
+@import 'helpers/mixins';
+@import 'base/normalize';
+@import 'base/typography';
 
 body {
   background-image: url('../images/noisy_grid.png');
-  font-family: $font-stack;
-  font-size: 16px;
-  font-weight: $font-light;
-  color: #444;
 }
 
 .wrapper {
@@ -65,43 +22,21 @@ body {
   background-color: #B6AA5C;
   width: 100vw; 
   margin-bottom: 2vh;
-
-  h1, h2 {
-    text-align: center;
-    color: #fff;   
-  }
-
-  h1 {
-    font-size: 3rem;
-    font-weight: $font-bold;
-  }
-
-  h2 {
-    font-size: 1.5rem;
-    font-weight: 300;
-  }
 }
 
 table {
   border: 2px solid $secondary-color;
   @include border-bottom-left-radius($border-rad);
   @include border-bottom-right-radius($border-rad);
-  text-align: left;
   margin: 0 auto 2vh;
   width: 80vw;
   max-width: 800px;
-  background-color: #fff;
 
   caption {
     display: table-caption;
-    text-align: center;
-    background-color: #8A7DF6;
-    color: #fff;
     border: 2px solid #8A7df6;
     @include border-top-left-radius($border-rad);
     @include border-top-right-radius($border-rad);
-    font-size: 1.2rem;
-    font-weight: $font-bold;
   }
 
   tr {
@@ -112,40 +47,25 @@ table {
     padding: 10px;
     border-bottom: 1px solid #ddd;
   }
-
-  th {
-    font-weight: $font-bold;
-  }
 }
 
 #add-train {
   border: 2px solid $secondary-color;
   @include border-radius($border-rad);
-  text-align: left;
   width: 80vw;
   max-width: 800px;
   margin: 0 auto 2vh;
-  background-color: #fff;
 
   legend {
     display: table-caption;
-    text-align: center;
-    background-color: #8A7DF6;
-    color: #fff;
     border: 2px solid #8A7df6;
     border-top-left-radius: $border-rad;
     border-top-right-radius: $border-rad;
     margin-bottom: 10px;
-    font-size: 1.2rem;
-    font-weight: $font-bold;
   }
 
   label, input, button {
     margin: 10px;
-  }
-  
-  label {
-    font-weight: $font-bold;
   }
   
   input {
@@ -155,10 +75,8 @@ table {
   }
   
   button {
-    background-color: #8A7DF6;
     border: 0;
     border-radius: $border-rad;
     padding: 10px;
-    color: #fff;
   }
 }
