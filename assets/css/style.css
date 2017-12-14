@@ -23,10 +23,10 @@ body {
     text-align: center;
     color: #fff; }
   #title h1 {
-    font-size: 3em;
+    font-size: 3rem;
     font-weight: 600; }
   #title h2 {
-    font-size: 1.5em;
+    font-size: 1.5rem;
     font-weight: 300; }
 
 table {
@@ -58,7 +58,7 @@ table {
     -moz-border-top-right-radius: 5px;
     -ms-border-top-right-radius: 5px;
     border-top-right-radius: 5px;
-    font-size: 1.2em;
+    font-size: 1.2rem;
     font-weight: 600; }
   table tr {
     width: 100%; }
@@ -88,7 +88,7 @@ table {
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     margin-bottom: 10px;
-    font-size: 1.2em;
+    font-size: 1.2rem;
     font-weight: 600; }
   #add-train label, #add-train input, #add-train button {
     margin: 10px; }
