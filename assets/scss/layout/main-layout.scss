@@ -3,16 +3,44 @@ body {
 }
 
 .wrapper {
-  max-width: 900px;
   margin: 0 auto;
-  align-items: center;
-  display: flex;  
-  flex-direction: column;
-  justify-content: center;
+  padding: 0 auto;
+  display: grid;
+  grid-template-columns: 10vw 1fr 10vw;
+  grid-template-rows: auto auto auto; 
+  // grid-template-areas: 
+  //   ". title ."
+  //   ". train-table ."
+  //   ". add-train .";
+  grid-gap: 2vh;
 }
 
-#title {
+header {
   display: block;
-  width: 100vw; 
-  margin-bottom: 2vh;
+  // grid-area: "title";
+  grid-column: 1 / 4;
+  grid-row: 1 / 2;
+}
+
+section {
+  // grid-area: "train-table";
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  // width: 100%;
+
+  table {
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+aside {
+  // grid-area: "add-train";
+  grid-column: 2 / 3;
+  grid-row: 3 / 4;
+  width: 100%;
+
+  #add-train {
+    margin: 0 auto;
+  }
 }

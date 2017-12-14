@@ -406,17 +406,31 @@ body {
   background-image: url("../images/noisy_grid.png"); }
 
 .wrapper {
-  max-width: 900px;
   margin: 0 auto;
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center; }
+  padding: 0 auto;
+  display: grid;
+  grid-template-columns: 10vw 1fr 10vw;
+  grid-template-rows: auto auto auto;
+  grid-gap: 2vh; }
 
-#title {
+header {
   display: block;
-  width: 100vw;
-  margin-bottom: 2vh; }
+  grid-column: 1 / 4;
+  grid-row: 1 / 2; }
+
+section {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3; }
+  section table {
+    width: 100%;
+    margin: 0 auto; }
+
+aside {
+  grid-column: 2 / 3;
+  grid-row: 3 / 4;
+  width: 100%; }
+  aside #add-train {
+    margin: 0 auto; }
 
 table {
   border: 2px solid #8A7DF6;
@@ -427,10 +441,7 @@ table {
   -webkit-border-bottom-right-radius: 5px;
   -moz-border-bottom-right-radius: 5px;
   -ms-border-bottom-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-  margin: 0 auto 2vh;
-  width: 80vw;
-  max-width: 800px; }
+  border-bottom-right-radius: 5px; }
   table caption {
     display: table-caption;
     border: 2px solid #8A7DF6;
@@ -453,10 +464,7 @@ table {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
-  border-radius: 5px;
-  width: 80vw;
-  max-width: 800px;
-  margin: 0 auto 2vh; }
+  border-radius: 5px; }
   #add-train legend {
     display: table-caption;
     border: 2px solid #8A7df6;
