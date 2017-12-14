@@ -50,10 +50,10 @@ body {
 .wrapper {
   max-width: 900px;
   margin: 0 auto;
-  display: flex;
+  align-items: center;
+  display: flex;  
   flex-direction: column;
   justify-content: center;
-  align-items: center;
 }
 
 #title {
