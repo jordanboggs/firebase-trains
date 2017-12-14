@@ -1,0 +1,31 @@
+#add-train {
+  border: 2px solid $secondary-color;
+  @include border-radius($border-rad);
+  width: 80vw;
+  max-width: 800px;
+  margin: 0 auto 2vh;
+
+  legend {
+    display: table-caption;
+    border: 2px solid #8A7df6;
+    border-top-left-radius: $border-rad;
+    border-top-right-radius: $border-rad;
+    margin-bottom: 10px;
+  }
+
+  label, input, button {
+    margin: 10px;
+  }
+  
+  input {
+    width: 90%;
+    border: 1px solid #444;
+    border-radius: $border-rad;
+  }
+  
+  button {
+    border: 0;
+    border-radius: $border-rad;
+    padding: 10px;
+  }
+}

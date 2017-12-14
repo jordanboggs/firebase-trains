@@ -363,15 +363,17 @@ body {
   font-weight: 300;
   color: #444; }
 
-#title h1, #title h2 {
-  text-align: center;
-  color: #fff; }
-#title h1 {
-  font-size: 3rem;
-  font-weight: 600; }
-#title h2 {
-  font-size: 1.5rem;
-  font-weight: 300; }
+#title {
+  background-color: #B6AA5C; }
+  #title h1, #title h2 {
+    text-align: center;
+    color: #fff; }
+  #title h1 {
+    font-size: 3rem;
+    font-weight: 600; }
+  #title h2 {
+    font-size: 1.5rem;
+    font-weight: 300; }
 
 table {
   text-align: left;
@@ -413,7 +415,6 @@ body {
 
 #title {
   display: block;
-  background-color: #B6AA5C;
   width: 100vw;
   margin-bottom: 2vh; }
 
@@ -432,7 +433,7 @@ table {
   max-width: 800px; }
   table caption {
     display: table-caption;
-    border: 2px solid #8A7df6;
+    border: 2px solid #8A7DF6;
     -webkit-border-top-left-radius: 5px;
     -moz-border-top-left-radius: 5px;
     -ms-border-top-left-radius: 5px;

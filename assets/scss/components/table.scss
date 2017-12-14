@@ -1,0 +1,24 @@
+table {
+  border: 2px solid $secondary-color;
+  @include border-bottom-left-radius($border-rad);
+  @include border-bottom-right-radius($border-rad);
+  margin: 0 auto 2vh;
+  width: 80vw;
+  max-width: 800px;
+
+  caption {
+    display: table-caption;
+    border: 2px solid $secondary-color;
+    @include border-top-left-radius($border-rad);
+    @include border-top-right-radius($border-rad);
+  }
+
+  tr {
+    width: 100%;
+  }
+
+  th, td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+}

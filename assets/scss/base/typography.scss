@@ -6,6 +6,8 @@ body {
 }
 
 #title {
+  background-color: $primary-color;
+  
   h1, h2 {
     text-align: center;
     color: #fff;   
@@ -28,7 +30,7 @@ table {
   
   caption {
     text-align: center;
-    background-color: #8A7DF6;
+    background-color: $secondary-color;
     color: #fff;
     font-size: 1.2rem;
     font-weight: $font-bold;
@@ -45,7 +47,7 @@ table {
 
   legend {
     text-align: center;
-    background-color: #8A7DF6;
+    background-color: $secondary-color;
     color: #fff;
     font-size: 1.2rem;
     font-weight: $font-bold;
@@ -56,7 +58,7 @@ table {
   }
 
   button {
-    background-color: #8A7DF6;
+    background-color: $secondary-color;
     color: #fff;    
   }
 }
