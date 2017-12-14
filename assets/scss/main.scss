@@ -1,10 +1,12 @@
 @import 'normalize.css';
+@import url('https://fonts.googleapis.com/css?family=Nunito:300,600');
 
 $font-stack: 'Nunito', sans-serif;
 $font-bold: 600;
 $font-light: 300;
 $primary-color: #B6AA5C;
 $secondary-color: #8A7DF6;
+$border-rad: 5px;
 
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;
@@ -82,8 +84,8 @@ body {
 
 table {
   border: 2px solid $secondary-color;
-  @include border-bottom-left-radius(5px);
-  @include border-bottom-right-radius(5px);
+  @include border-bottom-left-radius($border-rad);
+  @include border-bottom-right-radius($border-rad);
   text-align: left;
   margin: 0 auto 2vh;
   width: 80vw;
@@ -96,8 +98,8 @@ table {
     background-color: #8A7DF6;
     color: #fff;
     border: 2px solid #8A7df6;
-    @include border-top-left-radius(5px);
-    @include border-top-right-radius(5px);
+    @include border-top-left-radius($border-rad);
+    @include border-top-right-radius($border-rad);
     font-size: 1.2rem;
     font-weight: $font-bold;
   }
@@ -118,7 +120,7 @@ table {
 
 #add-train {
   border: 2px solid $secondary-color;
-  @include border-radius(5px);
+  @include border-radius($border-rad);
   text-align: left;
   width: 80vw;
   max-width: 800px;
@@ -131,8 +133,8 @@ table {
     background-color: #8A7DF6;
     color: #fff;
     border: 2px solid #8A7df6;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+    border-top-left-radius: $border-rad;
+    border-top-right-radius: $border-rad;
     margin-bottom: 10px;
     font-size: 1.2rem;
     font-weight: $font-bold;
@@ -149,13 +151,13 @@ table {
   input {
     width: 90%;
     border: 1px solid #444;
-    border-radius: 5px;
+    border-radius: $border-rad;
   }
   
   button {
     background-color: #8A7DF6;
     border: 0;
-    border-radius: 5px;
+    border-radius: $border-rad;
     padding: 10px;
     color: #fff;
   }
