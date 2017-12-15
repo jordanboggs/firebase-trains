@@ -60,7 +60,11 @@ function calculateArrival(start, freq) {
 
 function calculateMinutes(start, freq) {
   let nextArrival = moment(start, "HH:mm").add(freq, 'm');
-  return moment(nextArrival).fromNow();
+  do {
+    nextArrival.add(freq, 'm');
+  } while (nextArrival < moment())
+  
+  return nextArrival.fromNow();
 }
 
  /*
@@ -97,7 +101,5 @@ function drawTable() {
 
 /* * * * *
  * Current Issues
- * 1. Currently don't do any math based on repetition of trains, i.e.,
- *    if a train comes at 10:30 and the frequency is 30 minutes, at
- *    11:30 it will say the next train comes 30 minutes ago
+ * 1. 
  * * * * */
