@@ -25,16 +25,28 @@ if (!Array.isArray(trainArray)) {
  * 
  * We will also want to validate the data in some way
  */ 
-function formSubmit() {
+$(document).on("click", "#submit-button", function(event) {
+  event.preventDefault();
+  let trainName = $("#train-name").val().trim();
+  let destination = $("#destination").val().trim();
+  let frequency = $("#frequency").val().trim();
+  let firstTrain = $("#first-train-time").val().trim();
 
-}
+  trainArray.push({
+    "trainName": trainName,
+    "destination": destination,
+    "frequency": frequency,
+    "firstTrain": firstTrain
+  });
+  localStorage.setItem("trainArray", JSON.stringify(trainArray));
+});
 
 /*
  * Function that calculates next arrival and time until next arrival
  * 
  * We'll definitely need moment.js for this
  */
-function calculateTimes(firstTime, ) {
+function calculateTimes(start, freq) {
 
 }
 
