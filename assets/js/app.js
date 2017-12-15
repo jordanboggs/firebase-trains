@@ -81,7 +81,7 @@ function drawTable() {
   `);
 
   for (let index=0; index < trainArray.length; index++) {
-    let current = trainArray[index]
+    let current = trainArray[index];
     $("#train-table").append(`
       <tr>
         <td>${current.trainName}</td>
