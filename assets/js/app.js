@@ -101,5 +101,5 @@ function drawTable() {
 
 /* * * * *
  * Current Issues
- * 1. 
+ * 1. Older entries in the array do not update
  * * * * */
