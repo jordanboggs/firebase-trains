@@ -36,7 +36,9 @@ $(document).on("click", "#submit-button", function(event) {
     "trainName": trainName,
     "destination": destination,
     "frequency": frequency,
-    "firstTrain": firstTrain
+    "firstTrain": firstTrain,
+    "nextArrival": calculateArrival(firstTrain, frequency),
+    "minutesAway": calculateMinutes(firstTrain, frequency)
   });
   localStorage.setItem("trainArray", JSON.stringify(trainArray));
 });
@@ -46,7 +48,16 @@ $(document).on("click", "#submit-button", function(event) {
  * 
  * We'll definitely need moment.js for this
  */
-function calculateTimes(start, freq) {
+function calculateArrival(start, freq) {
+  let now = moment();
+  // let firstTrain = I need to figure out how to parse the input time
+  
+  let arrival = start + freq;
+
+  return arrival;
+}
+
+function calculateMinutes(start, freq) {
 
 }
 
