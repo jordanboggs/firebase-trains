@@ -12,38 +12,6 @@ if (!Array.isArray(trainArray)) {
   trainArray = [];
 }
 
-/* 
- * Function to add train info to wherever we're saving it
- * 
- * Form id is #add-train
- * Train name is #train-name
- * Destination is #destination
- * Frequency is #frequency
- * First train time is #first-train-time
- * 
- * For now, let's save everything to local storage
- * 
- * We will also want to validate the data in some way
- */ 
-$(document).on("click", "#submit-button", function(event) {
-  event.preventDefault();
-  let trainName = $("#train-name").val().trim();
-  let destination = $("#destination").val().trim();
-  let frequency = $("#frequency").val().trim();
-  let firstTrain = $("#first-train-time").val().trim();
-
-  trainArray.push({
-    "trainName": trainName,
-    "destination": destination,
-    "frequency": frequency,
-    "firstTrain": firstTrain,
-    "nextArrival": calculateArrival(firstTrain, frequency),
-    "minutesAway": calculateMinutes(firstTrain, frequency)
-  });
-  localStorage.setItem("trainArray", JSON.stringify(trainArray));
-  drawTable();
-});
-
 /*
  * Function that calculates next arrival and time until next arrival
  * 
@@ -55,7 +23,11 @@ $(document).on("click", "#submit-button", function(event) {
  * e.g., moment(start, "HH:mm").add(freq, 'm');
  */
 function calculateArrival(start, freq) {
-  return moment(start, "HH:mm").add(freq, 'm');
+  let nextArrival = moment(start, "HH:mm").add(freq, 'm');
+  do {
+    nextArrival.add(freq, 'm');
+  } while (nextArrival < moment())
+  return nextArrival.format("DD MMM, YYYY [at] h:mm A");
 }
 
 function calculateMinutes(start, freq) {
@@ -98,6 +70,43 @@ function drawTable() {
     `);
   }
 }
+
+/*
+ * Function to draw train info on page load
+ */
+$(document).ready(drawTable());
+
+/* 
+ * Function to add train info to wherever we're saving it
+ * 
+ * Form id is #add-train
+ * Train name is #train-name
+ * Destination is #destination
+ * Frequency is #frequency
+ * First train time is #first-train-time
+ * 
+ * For now, let's save everything to local storage
+ * 
+ * We will also want to validate the data in some way
+ */ 
+$(document).on("click", "#submit-button", function(event) {
+  event.preventDefault();
+  let trainName = $("#train-name").val().trim();
+  let destination = $("#destination").val().trim();
+  let frequency = $("#frequency").val().trim();
+  let firstTrain = $("#first-train-time").val().trim();
+
+  trainArray.push({
+    "trainName": trainName,
+    "destination": destination,
+    "frequency": frequency,
+    "firstTrain": firstTrain,
+    "nextArrival": calculateArrival(firstTrain, frequency),
+    "minutesAway": calculateMinutes(firstTrain, frequency)
+  });
+  localStorage.setItem("trainArray", JSON.stringify(trainArray));
+  drawTable();
+});
 
 /* * * * *
  * Current Issues
