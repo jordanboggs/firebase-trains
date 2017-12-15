@@ -70,7 +70,16 @@ function calculateMinutes(start, freq) {
  */
 function drawTable() {
   // Reset the table
-  $("#train-table").html($("#train-table").slice(0, 2));
+  $("#train-table").html(`
+    <caption>Current Train Schedule</caption>
+    <tr>
+      <th>Train Name</th>
+      <th>Destination</th>
+      <th>Frequency (min)</th>
+      <th>Next Arrival</th>
+      <th>Minutes Away</th>
+    </tr>
+  `);
 
   for (let index=0; index < trainArray.length; index++) {
     let current = trainArray[index];
@@ -91,5 +100,4 @@ function drawTable() {
  * 1. Currently don't do any math based on repetition of trains, i.e.,
  *    if a train comes at 10:30 and the frequency is 30 minutes, at
  *    11:30 it will say the next train comes 30 minutes ago
- * 2. Slicing the table to keep the caption and headings
  * * * * */
