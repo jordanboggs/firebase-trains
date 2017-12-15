@@ -69,9 +69,19 @@ function calculateMinutes(start, freq) {
  * We'll have to parse time data using moment.js, I think
  */
 function drawTable() {
+  // Reset the table
+  $("#train-table").text(`
+    <tr>
+      <th>Train Name</th>
+      <th>Destination</th>
+      <th>Frequency (min)</th>
+      <th>Next Arrival</th>
+      <th>Minutes Away</th>
+    </tr>
+  `);
+
   for (let index=0; index < trainArray.length; index++) {
     let current = trainArray[index]
-    
     $("#train-table").append(`
       <tr>
         <td>${current.trainName}</td>
@@ -80,6 +90,14 @@ function drawTable() {
         <td>${current.nextArrival}</td>
         <td>${current.minutesAway}</td>
       </tr>
-    `)
+    `);
   }
 }
+
+/* * * * *
+ * Current Issues
+ * 1. Currently don't do any math based on repetition of trains, i.e.,
+ *    if a train comes at 10:30 and the frequency is 30 minutes, at
+ *    11:30 it will say the next train comes 30 minutes ago
+ * 2. 
+ * * * * */
