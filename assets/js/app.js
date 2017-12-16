@@ -36,7 +36,7 @@ function calculateMinutes(start, freq) {
     nextArrival.add(freq, 'm');
   } while (nextArrival < moment())
   
-  return nextArrival.fromNow();
+  return nextArrival.toNow();
 }
 
  /*
@@ -74,7 +74,18 @@ function drawTable() {
 /*
  * Function to draw train info on page load
  */
-$(document).ready(drawTable());
+$(document).ready(function(){
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBY5dRNI8kTsHnfCFDTcXdLi2fqKdO5oJE",
+    authDomain: "train-tracker-13a43.firebaseapp.com",
+    databaseURL: "https://train-tracker-13a43.firebaseio.com",
+    projectId: "train-tracker-13a43",
+    storageBucket: "train-tracker-13a43.appspot.com",
+    messagingSenderId: "418885638307"
+  };
+  firebase.initializeApp(config);
+});
 
 /* 
  * Function to add train info to wherever we're saving it
@@ -110,5 +121,7 @@ $(document).on("click", "#submit-button", function(event) {
 
 /* * * * *
  * Current Issues
- * 1. Older entries in the array do not update
+ * 1. Integrate with Firebase
+ * 2. Times should update each time the page is loaded and each time
+ *    the table is updated.
  * * * * */
