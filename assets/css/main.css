@@ -395,6 +395,22 @@ aside {
   aside #add-train {
     margin: 0 auto; }
 
+@media only screen and (min-width: 900px) {
+  .wrapper {
+    grid-template-columns: 10vw 2fr 1fr 10vw;
+    grid-template-rows: auto auto; }
+
+  header {
+    grid-column: 1 / 5;
+    grid-row: 1 / 2; }
+
+  section {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3; }
+
+  aside {
+    grid-column: 3 / 4;
+    grid-row: 2 / 3; } }
 /* Styling for #title in header*/
 #title {
   background-color: #B6AA5C; }
@@ -466,8 +482,9 @@ table {
     font-size: 1.2rem;
     font-weight: 600; }
   #add-train label, #add-train input, #add-train button {
-    margin: 10px; }
+    margin: 5px; }
   #add-train label {
+    display: inline-block;
     font-weight: 600; }
   #add-train input {
     width: 90%;

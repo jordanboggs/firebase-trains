@@ -20,10 +20,11 @@
   }
 
   label, input, button {
-    margin: 10px;
+    margin: 5px;
   }
   
   label {
+    display: inline-block;
     font-weight: $font-bold;
   }
 
