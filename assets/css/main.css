@@ -482,7 +482,7 @@ table {
     font-size: 1.2rem;
     font-weight: 600; }
   #add-train label, #add-train input, #add-train button {
-    margin: 5px; }
+    margin: 5px 10px; }
   #add-train label {
     display: inline-block;
     font-weight: 600; }
