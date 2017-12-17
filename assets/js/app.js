@@ -28,8 +28,8 @@ ref.on("child_added", function(snapshot) {
   let trainNameDisplay = newChild.trainName;
   let destinationDisplay = newChild.destination;
   let frequencyDisplay = newChild.frequency;
-  let nextArrivalDisplay = newChild.nextArrival;
-  let minutesAwayDisplay = newChild.minutesAway;
+  let nextArrivalDisplay = calculateArrival(newChild.firstTrain, newChild.frequency);
+  let minutesAwayDisplay = calculateMinutes(newChild.firstTrain, newChild.frequency);
 
   $("#train-table").append(`
     <tr>
@@ -94,9 +94,9 @@ $(document).on("click", "#submit-button", function(event) {
     "trainName": trainName,
     "destination": destination,
     "frequency": frequency,
-    "firstTrain": firstTrain,
-    "nextArrival": calculateArrival(firstTrain, frequency),
-    "minutesAway": calculateMinutes(firstTrain, frequency)
+    "firstTrain": firstTrain
+    // "nextArrival": calculateArrival(firstTrain, frequency),
+    // "minutesAway": calculateMinutes(firstTrain, frequency)
   });
 });
 
