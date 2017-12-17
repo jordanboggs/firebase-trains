@@ -7,10 +7,40 @@
  * (c) 2017 DU Coding Bootcamp
  */
 
-var trainArray = JSON.parse(localStorage.getItem("trainArray"));
-if (!Array.isArray(trainArray)) {
-  trainArray = [];
-}
+ // Initialize Firebase
+const config = {
+  apiKey: "AIzaSyBY5dRNI8kTsHnfCFDTcXdLi2fqKdO5oJE",
+  authDomain: "train-tracker-13a43.firebaseapp.com",
+  databaseURL: "https://train-tracker-13a43.firebaseio.com",
+  projectId: "train-tracker-13a43",
+  storageBucket: "train-tracker-13a43.appspot.com",
+  messagingSenderId: "418885638307"
+};
+firebase.initializeApp(config);
+
+const database = firebase.database();
+const ref = database.ref();
+
+// At the initial load and subsequent value changes, get a snapshot of the stored data.
+// This function allows you to update your page in real-time when the firebase database changes.
+ref.on("child_added", function(snapshot) {
+  let newChild = snapshot.val();
+  let trainNameDisplay = newChild.trainName;
+  let destinationDisplay = newChild.destination;
+  let frequencyDisplay = newChild.frequency;
+  let nextArrivalDisplay = newChild.nextArrival;
+  let minutesAwayDisplay = newChild.minutesAway;
+
+  $("#train-table").append(`
+    <tr>
+      <td>${trainNameDisplay}</td>
+      <td>${destinationDisplay}</td>
+      <td>${frequencyDisplay}</td>
+      <td>${nextArrivalDisplay}</td>
+      <td>${minutesAwayDisplay}</td>
+    </tr>
+  `);
+});
 
 /*
  * Function that calculates next arrival and time until next arrival
@@ -27,7 +57,7 @@ function calculateArrival(start, freq) {
   do {
     nextArrival.add(freq, 'm');
   } while (nextArrival < moment())
-  return nextArrival.format("DD MMM, YYYY [at] h:mm A");
+  return nextArrival.format("DD MMM YYYY [at] h:mm A");
 }
 
 function calculateMinutes(start, freq) {
@@ -36,56 +66,8 @@ function calculateMinutes(start, freq) {
     nextArrival.add(freq, 'm');
   } while (nextArrival < moment())
   
-  return nextArrival.toNow();
+  return nextArrival.diff(moment(), 'minutes');
 }
-
- /*
- * Function that pulls data to add to table (#train-table)
- * 
- * We'll have to parse time data using moment.js, I think
- */
-function drawTable() {
-  // Reset the table
-  $("#train-table").html(`
-    <caption>Current Train Schedule</caption>
-    <tr>
-      <th>Train Name</th>
-      <th>Destination</th>
-      <th>Frequency (min)</th>
-      <th>Next Arrival</th>
-      <th>Minutes Away</th>
-    </tr>
-  `);
-
-  for (let index=0; index < trainArray.length; index++) {
-    let current = trainArray[index];
-    $("#train-table").append(`
-      <tr>
-        <td>${current.trainName}</td>
-        <td>${current.destination}</td>
-        <td>${current.frequency}</td>
-        <td>${current.nextArrival}</td>
-        <td>${current.minutesAway}</td>
-      </tr>
-    `);
-  }
-}
-
-/*
- * Function to draw train info on page load
- */
-$(document).ready(function(){
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyBY5dRNI8kTsHnfCFDTcXdLi2fqKdO5oJE",
-    authDomain: "train-tracker-13a43.firebaseapp.com",
-    databaseURL: "https://train-tracker-13a43.firebaseio.com",
-    projectId: "train-tracker-13a43",
-    storageBucket: "train-tracker-13a43.appspot.com",
-    messagingSenderId: "418885638307"
-  };
-  firebase.initializeApp(config);
-});
 
 /* 
  * Function to add train info to wherever we're saving it
@@ -102,12 +84,13 @@ $(document).ready(function(){
  */ 
 $(document).on("click", "#submit-button", function(event) {
   event.preventDefault();
+
   let trainName = $("#train-name").val().trim();
   let destination = $("#destination").val().trim();
   let frequency = $("#frequency").val().trim();
   let firstTrain = $("#first-train-time").val().trim();
 
-  trainArray.push({
+  ref.push().set({
     "trainName": trainName,
     "destination": destination,
     "frequency": frequency,
@@ -115,13 +98,10 @@ $(document).on("click", "#submit-button", function(event) {
     "nextArrival": calculateArrival(firstTrain, frequency),
     "minutesAway": calculateMinutes(firstTrain, frequency)
   });
-  localStorage.setItem("trainArray", JSON.stringify(trainArray));
-  drawTable();
 });
 
 /* * * * *
  * Current Issues
- * 1. Integrate with Firebase
- * 2. Times should update each time the page is loaded and each time
+ * 1. Times should update each time the page is loaded and each time
  *    the table is updated.
  * * * * */
