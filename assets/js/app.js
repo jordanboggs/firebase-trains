@@ -111,9 +111,3 @@ $(document).on("click", "#submit-button", function(event) {
     `); 
   }
 });
-
-/* * * * *
- * Current Issues
- * 1. Times should update each time the page is loaded and each time
- *    the table is updated.
- * * * * */
