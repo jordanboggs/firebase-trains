@@ -365,15 +365,20 @@ body {
   color: #444; }
 
 /* Overall layout */
+html {
+  height: 100%;
+  box-sizing: border-box; }
+
 body {
-  background-image: url("../images/noisy_grid.png"); }
+  background-image: url("../images/noisy_grid.png");
+  min-height: 100%; }
 
 .wrapper {
-  margin: 0 auto 2vh auto;
+  margin: 0 auto;
   padding: 0 auto;
   display: grid;
-  grid-template-columns: 10vw 1fr 10vw;
-  grid-template-rows: auto auto auto;
+  grid-template-columns: 5vw 1fr 5vw;
+  grid-template-rows: 200px auto auto 50px;
   grid-gap: 2vh; }
 
 header {
@@ -395,10 +400,19 @@ aside {
   aside #add-train {
     margin: 0 auto; }
 
+footer {
+  grid-column: 1 / 4;
+  grid-row: 4 / 5;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  margin: 0; }
+
 @media only screen and (min-width: 900px) {
   .wrapper {
     grid-template-columns: 10vw 2fr 1fr 10vw;
-    grid-template-rows: auto auto; }
+    grid-template-rows: 200px 1fr 50px; }
 
   header {
     grid-column: 1 / 5;
@@ -410,7 +424,11 @@ aside {
 
   aside {
     grid-column: 3 / 4;
-    grid-row: 2 / 3; } }
+    grid-row: 2 / 3; }
+
+  footer {
+    grid-column: 1 / 5;
+    grid-row: 3 / 4; } }
 /* Styling for #title in header*/
 #title {
   background-color: #B6AA5C; }
@@ -497,5 +515,10 @@ table {
     padding: 10px;
     background-color: #8A7DF6;
     color: #fff; }
+
+footer {
+  text-align: center;
+  color: #fff;
+  background-color: #B6AA5C; }
 
 /*# sourceMappingURL=main.css.map */
