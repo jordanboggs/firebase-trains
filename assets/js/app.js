@@ -90,14 +90,26 @@ $(document).on("click", "#submit-button", function(event) {
   let frequency = $("#frequency").val().trim();
   let firstTrain = $("#first-train-time").val().trim();
 
-  ref.push().set({
-    "trainName": trainName,
-    "destination": destination,
-    "frequency": frequency,
-    "firstTrain": firstTrain
-    // "nextArrival": calculateArrival(firstTrain, frequency),
-    // "minutesAway": calculateMinutes(firstTrain, frequency)
-  });
+  if (trainName.length > 0 &&
+      destination.length > 0 &&
+      parseInt(frequency) > 0 &&
+      moment(firstTrain, 'HH:mm').isValid()) 
+  {
+    ref.push().set({
+      "trainName": trainName,
+      "destination": destination,
+      "frequency": frequency,
+      "firstTrain": firstTrain
+    });
+  }
+  else {
+    console.log(`
+      trainName: ${trainName.length}, 
+      destination: ${destination.length}, 
+      frequency: ${parseInt(frequency)}, 
+      firstTrain: ${moment(firstTrain, 'HH:mm').isValid()}
+    `); 
+  }
 });
 
 /* * * * *
